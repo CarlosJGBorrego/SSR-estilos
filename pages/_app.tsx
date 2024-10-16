@@ -1,5 +1,5 @@
 // pages/_app.tsx
-import '../public/styles/globals.css'; // Asegúrate de que esta línea esté presente
+import '../public/styles/globals.scss'; // Asegúrate de que esta línea esté presente
 import { CacheProvider } from '@emotion/react';
 import createEmotionCache from '../utils/createEmotionCache';
 
