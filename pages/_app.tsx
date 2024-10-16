@@ -1,9 +1,16 @@
 // pages/_app.tsx
-import '../styles/globals.css';
-import { AppProps } from 'next/app';
+import '../public/styles/globals.css'; // Asegúrate de que esta línea esté presente
+import { CacheProvider } from '@emotion/react';
+import createEmotionCache from '../utils/createEmotionCache';
 
-function MyApp({ Component, pageProps }: AppProps) {
-    return <Component {...pageProps} />;
-}
+const clientSideEmotionCache = createEmotionCache();
+
+const MyApp = ({ Component, pageProps }: any) => {
+  return (
+    <CacheProvider value={clientSideEmotionCache}>
+      <Component {...pageProps} />
+    </CacheProvider>
+  );
+};
 
 export default MyApp;

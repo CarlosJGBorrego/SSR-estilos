@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
 
     ctx.renderPage = () =>
       originalRenderPage({
-        enhanceApp: (App: any) => (props: React.JSX.IntrinsicAttributes) => <App emotionCache={emotionCache} {...props} />,
+        enhanceApp: (App: any) => (props) => <App emotionCache={emotionCache} {...props} />,
       });
 
     const initialProps = await Document.getInitialProps(ctx);
@@ -34,6 +34,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="stylesheet" href="/fonts/roboto/roboto.css" />
+          <link rel="stylesheet" href="/styles/globals.css" /> {/* Asegúrate de que esta línea esté presente */}
           {this.props.styles}
         </Head>
         <body>
